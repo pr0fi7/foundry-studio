@@ -10,7 +10,7 @@ import {
 export function ProductArt({ kind }: { kind: string }) {
   const analytics = kind === "analytics";
   const automation = kind === "automation";
-  const routing = kind === "euroformat";
+  const bom = kind === "euroformat";
   const quoting = kind === "qote";
   return (
     <div className={`product-art art-${kind}`} aria-hidden="true">
@@ -23,8 +23,8 @@ export function ProductArt({ kind }: { kind: string }) {
             ? "CONNECTED WORKFLOW"
             : quoting
               ? "REQUEST → QUOTE"
-              : routing
-                ? "ENQUIRY → ENGINEER"
+              : bom
+                ? "SPEC → BOM"
                 : "READY FOR PRODUCTION"}
       </div>
       <div className="mock-window">
@@ -41,8 +41,8 @@ export function ProductArt({ kind }: { kind: string }) {
                 ? "Company registry"
                 : quoting
                   ? "Renovation request"
-                  : routing
-                    ? "Project enquiry"
+                  : bom
+                    ? "Elevator BOM"
                     : "Product workspace"}
           </span>
           <ArrowUpRight size={12} />
@@ -63,8 +63,8 @@ export function ProductArt({ kind }: { kind: string }) {
                   ? "LESS MANUAL WORK"
                   : quoting
                     ? "NO SITE VISIT NEEDED"
-                    : routing
-                      ? "ROUTED ON ARRIVAL"
+                    : bom
+                      ? "AI WORKFLOW"
                       : "BUILT TO KEEP MOVING"}
             </span>
             <div className="mock-title">
@@ -74,8 +74,8 @@ export function ProductArt({ kind }: { kind: string }) {
                   ? "One source of truth."
                   : quoting
                     ? "Quoted from the office."
-                    : routing
-                      ? "The right engineer, first time."
+                    : bom
+                      ? "Specification in. Parts list out."
                       : "Everything, connected."}
             </div>
             {analytics ? (
@@ -103,20 +103,18 @@ export function ProductArt({ kind }: { kind: string }) {
                   <Check size={13} /> Checked · sent under your brand
                 </div>
               </div>
-            ) : routing ? (
+            ) : bom ? (
               <div className="mock-form mock-quote">
-                {[
-                  ["Passenger lift", "Lifts"],
-                  ["Modernisation", "Service"],
-                  ["Electrical cabinet", "Enclosures"],
-                ].map(([t, team]) => (
-                  <div key={t}>
-                    <span>{t}</span>
-                    <b>→ {team}</b>
-                  </div>
-                ))}
+                {["Drive & traction", "Cabin & doors", "Controls & wiring"].map(
+                  (t) => (
+                    <div key={t}>
+                      <span>{t}</span>
+                      <b>Listed</b>
+                    </div>
+                  ),
+                )}
                 <div className="mock-success">
-                  <Check size={13} /> Engineer replies within 1 business day
+                  <Check size={13} /> Bill of materials ready
                 </div>
               </div>
             ) : automation ? (

@@ -29,7 +29,7 @@ All runtime package versions are pinned by `package-lock.json`. GSAP/ScrollTrigg
 - Supplied `ROBO_FACTORY_CODEX_BUILD_SPEC.md`.
 - https://manager.harmix.ai/ — public Pam Memory product description (MCP memory for AI agents; Gmail, Slack, Notion, HubSpot sources) and Trust Center badges (SOC 2 Type II compliant, GDPR in progress). Used to describe the product around our repair, migration, and compliance work.
 - https://qote.be/fr/index.html — public Qote product description and figures (5 min to validate a quote, 0 km travel, ~2 h 30 manual comparison), published by NXTWEB. Paraphrased and attributed; no Qote branding or imagery is used.
-- https://euroformat.com/en/ — public Euroformat Plant site (Kyiv lift manufacturer): buyer paths, department enquiry addresses, and the one-business-day engineer reply. Paraphrased and attributed; no Euroformat branding, photos, or logos are used.
+- https://euroformat.com/en/ — public Euroformat Plant site (Kyiv lift manufacturer): what the company makes and its EU supply history. Paraphrased and attributed; no Euroformat branding, photos, or logos are used.
 - Service context: https://atomiztech.si/ai-poc-to-production/, https://atomiztech.si/vibe-coded-mvp-rescue/, https://atomiztech.si/soc2-gdpr-engineering/.
 
 Reference labels remain on by default. Ownership, certification, project dates, budgets, staff, and endorsements are not inferred from these facts.

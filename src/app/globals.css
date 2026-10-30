@@ -5071,17 +5071,46 @@ body {
   .price-ladder-head h2 {
     font-size: 23px;
   }
-  .price-ladder tbody th {
-    width: auto;
+  /* Each row stacks: step, then price, then how it's agreed. */
+  .price-ladder table,
+  .price-ladder tbody,
+  .price-ladder tbody tr,
+  .price-ladder tbody th,
+  .price-ladder tbody td {
+    display: block;
   }
-  .price-ladder td:nth-child(2) {
+  .price-ladder thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .price-ladder tbody tr {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .price-ladder tbody tr:last-child {
+    border-bottom: 0;
+  }
+  .price-ladder tbody th,
+  .price-ladder tbody td {
+    width: auto;
+    padding: 0;
+    border: 0;
     white-space: normal;
   }
-  .price-ladder thead th:first-child {
-    width: 38%;
+  .price-ladder tbody th {
+    font-size: 16px;
   }
-  .price-ladder thead th:nth-child(2) {
-    width: 30%;
+  .price-ladder tbody td:nth-child(2) {
+    margin-top: 6px;
+    font-size: 15px;
+  }
+  .price-ladder tbody td:nth-child(3) {
+    margin-top: 3px;
+    font-size: 13px;
+    color: var(--muted);
   }
 }
 @media (max-width: 390px) {

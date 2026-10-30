@@ -84,6 +84,68 @@ test("work filters, FAQ, pricing, and factory toggle work", async ({
   await page.goto("/pricing");
   await expect(page.getByText("€400–€900").first()).toBeVisible();
 });
+test("hero next step follows the visitor's choice, not the demo", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const actions = page.locator(".hero .actions");
+  await expect(
+    actions.getByRole("link", { name: "Book a free call" }),
+  ).toHaveAttribute("href", /^\/contact/);
+  await expect(page.locator(".hero-workshop")).toHaveAttribute(
+    "data-mode",
+    "fix",
+    { timeout: 20_000 },
+  );
+  await expect(
+    actions.getByRole("link", { name: "Compare the services" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Build 01" }).click();
+  await expect(
+    actions.getByRole("link", { name: "Start your MVP" }),
+  ).toHaveAttribute("href", /^\/services\/mvp-factory/);
+  await page.getByRole("button", { name: "Fix 02" }).click();
+  await expect(
+    actions.getByRole("link", { name: "Book a diagnosis" }),
+  ).toHaveAttribute("href", /^\/services\/product-rescue/);
+  await expect(actions.getByRole("link")).toHaveCount(2);
+});
+test("pricing rows stack on phones and stay one table on desktop", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/pricing");
+  const row = page.locator(".price-ladder tbody tr").first();
+  const [step, price, note] = await Promise.all(
+    [0, 1, 2].map((i) =>
+      row
+        .locator("th, td")
+        .nth(i)
+        .evaluate((el) => el.getBoundingClientRect().top),
+    ),
+  );
+  expect(price).toBeGreaterThan(step);
+  expect(note).toBeGreaterThan(price);
+  await expect(page.locator(".price-ladder thead").first()).toHaveCSS(
+    "position",
+    "absolute",
+  );
+  await expect(page.getByRole("table").first()).toBeAttached();
+  await page.setViewportSize({ width: 1024, height: 800 });
+  await expect(row).toHaveCSS("display", "table-row");
+});
+test("every page shares the link preview image", async ({ page, request }) => {
+  for (const route of routes) {
+    await page.goto(route);
+    const image = await page
+      .locator('meta[property="og:image"]')
+      .getAttribute("content");
+    expect(image, route).toMatch(/\/og-image\.png$/);
+  }
+  const response = await request.get("/og-image.png");
+  expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toBe("image/png");
+});
 test("mobile menu opens with keyboard and returns focus on Escape", async ({
   page,
 }) => {
