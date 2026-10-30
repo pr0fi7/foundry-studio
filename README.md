@@ -25,7 +25,7 @@ The first build needs access to Google Fonts. `next/font/google` downloads and b
 - Home: an original SVG miniature factory that assembles itself and runs a self-playing Build/Fix demonstration, a marquee, the three service offers with their priced first steps, the four-station production line, recent work, a short FAQ, and a call to action.
 - Three services, each sold with a small fixed first step: **Product Rescue** (technical diagnosis → repair sprint), **MVP Factory** (discovery → prototype → milestone build), and **Automation & Integration** (workflow audit → build & connect). A services overview compares them.
 - Main navigation links straight to the three services, Work, and Pricing.
-- Work filtering and three case studies, each linking to the live site: Qote (built from scratch), Pam by Harmix (repairs, new infrastructure, SOC 2 and GDPR support), and Euroformat (AI implementation and automation).
+- Work filtering and three case studies, each linking to the live site: Qote (built from scratch), Pam by Harmix (repairs, new infrastructure, SOC 2 and GDPR support), and Euroformat (core operations moved onto AI workflows, including elevator BOM creation).
 - Pricing (one price table per service), contact, FAQ, privacy and terms templates, and branded 404 handling.
 - The retired pages (`/process`, `/about`, and the old `/services/build`, `/services/fix`, `/services/ai-automation`, `/services/cloud-security`, `/services/support`) redirect from `next.config.ts`. Old `?intent=fix|build|ai-automation` contact links still preselect the matching service.
 - Shared responsive navigation, native mobile disclosure with Escape/focus handling, breadcrumbs, footer, active navigation, metadata, sitemap, and robots.

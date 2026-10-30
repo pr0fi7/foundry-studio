@@ -10,6 +10,10 @@ import {
   InlineLink,
 } from "@/components/ui";
 import { FactoryScene } from "@/components/factory-scene";
+import {
+  HeroChoiceProvider,
+  HeroSecondaryAction,
+} from "@/components/hero-choice";
 import { ProductionLine } from "@/components/production-line";
 import { pickFaqs } from "@/content/faq";
 import { services } from "@/content/services";
@@ -28,32 +32,33 @@ export default function Home() {
     <>
       <section className="hero container" data-mode="build" data-stage="3">
         <div className="hero-backdrop" aria-hidden="true" />
-        <div className="hero-copy">
-          <Eyebrow>THE SOFTWARE FACTORY</Eyebrow>
-          <h1>
-            <span className="h-line line-build">
-              <span>We build it.</span>
-            </span>{" "}
-            <span className="h-line line-fix">
-              <span>We fix it.</span>
-            </span>{" "}
-            <span className="h-line line-work">
-              <span>We make it work.</span>
-            </span>
-          </h1>
-          <p className="hero-description">
-            Rescue an app that keeps breaking, launch a new MVP, or automate the
-            busywork. Each one starts with a small, clearly priced first step.
-          </p>
-          <div className="actions">
-            <Button href="/contact">Book a diagnosis</Button>
-            <Button href="#services" variant="secondary" arrow={false}>
-              Compare the services
-            </Button>
+        <HeroChoiceProvider>
+          <div className="hero-copy">
+            <Eyebrow>THE SOFTWARE FACTORY</Eyebrow>
+            <h1>
+              <span className="h-line line-build">
+                <span>We build it.</span>
+              </span>{" "}
+              <span className="h-line line-fix">
+                <span>We fix it.</span>
+              </span>{" "}
+              <span className="h-line line-work">
+                <span>We make it work.</span>
+              </span>
+            </h1>
+            <p className="hero-description">
+              Rescue an app that keeps breaking, launch a new MVP, or automate
+              the busywork. Each one starts with a small, clearly priced first
+              step.
+            </p>
+            <div className="actions">
+              <Button href="/contact">Book a free call</Button>
+              <HeroSecondaryAction />
+            </div>
+            <p className="hero-audience">For founders, product teams & SMEs.</p>
           </div>
-          <p className="hero-audience">For founders, product teams & SMEs.</p>
-        </div>
-        <FactoryScene />
+          <FactoryScene />
+        </HeroChoiceProvider>
         <a className="scroll-cue mono" href="#services">
           <span>
             <ArrowDown size={15} />

@@ -70,17 +70,21 @@ export const projects: Project[] = [
     name: "Euroformat",
     category: "Manufacturing / AI & automation",
     filter: "Automation",
-    role: "AI implementation & automation",
-    scope: ["AI implementation", "Workflow automation"],
+    role: "Core operations moved onto AI workflows",
+    scope: [
+      "Elevator BOM creation",
+      "Core process automation",
+      "AI implementation",
+    ],
     summary:
-      "AI and automation for a Kyiv lift manufacturer that sells to developers, architects, procurement teams, and installation partners.",
+      "From lift specification to parts list in 20 minutes, not 2 days. We moved core operations at a Kyiv lift manufacturer onto AI workflows, including elevator BOM creation.",
     challenge:
-      "Euroformat designs, manufactures, and services lifts and electrical enclosures in Kyiv, and has supplied the EU market since 2015. It sells to very different buyers—developers, architects, public procurement teams, installation partners, and homeowners’ associations—each with their own questions, documents, and requirements, and its engineers promise a reply to every project enquiry within one business day.",
+      "Euroformat designs, manufactures, and services lifts and electrical enclosures in Kyiv, and has supplied the EU market since 2015. Before a lift can be built, its specification has to become an exact bill of materials, and a missed part only shows up later, on the factory floor. This isn’t routine admin. It’s core, detail-heavy work, and when people do it by hand, it takes time specialists could be spending on engineering and customers.",
     solution:
-      "We worked on AI implementation and automation for Euroformat, putting AI and automated workflows to work on the repetitive steps around the business so its specialists can spend their time on engineering and customers rather than routine handling.",
+      "We didn’t add AI around the edges of the business. We moved some of Euroformat’s core operations onto it. Elevator BOM creation is the clearest example: what used to be assembled by hand now runs as an AI workflow, turning a lift’s requirements into a structured bill of materials in 20 minutes instead of 2 days. The same approach carries across other core processes, giving the team one repeatable way of working where there used to be manual handling.",
     outcomes: [
-      { value: "1 day", label: "engineer reply promised on every enquiry" },
-      { value: "6", label: "buyer types served" },
+      { value: "20 min", label: "per BOM, down from 2 days" },
+      { value: "Core", label: "processes now run through AI workflows" },
     ],
     url: "https://euroformat.com/en/",
     relatedServiceSlugs: ["automation"],

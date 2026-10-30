@@ -3,7 +3,7 @@ import { WorkFilter } from "@/components/work-filter";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
   "Work",
-  "Qote, built from scratch; Pam by Harmix, repaired, moved to new infrastructure, and supported through SOC 2 and GDPR; and AI and automation for Euroformat.",
+  "Qote, built from scratch; Pam by Harmix, repaired, moved to new infrastructure, and supported through SOC 2 and GDPR; and Euroformat’s core operations, moved onto AI workflows.",
   "/work",
 );
 export default function WorkPage() {

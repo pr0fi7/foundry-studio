@@ -35,6 +35,7 @@ export default async function ProjectPage({
   const p = projects[index];
   const next = projects[(index + 1) % projects.length];
   const prev = projects[(index + projects.length - 1) % projects.length];
+  const measured = p.outcomes.some((o) => countable(o.value));
   return (
     <>
       <div className="container">
@@ -90,7 +91,7 @@ export default async function ProjectPage({
               <p>{p.solution}</p>
             </section>
             <section>
-              <h2>In numbers.</h2>
+              <h2>{measured ? "In numbers." : "The result."}</h2>
               <div className="case-metrics">
                 {p.outcomes.map((o) => (
                   <div key={o.label}>
@@ -101,10 +102,12 @@ export default async function ProjectPage({
                   </div>
                 ))}
               </div>
-              <p className="small muted">
-                These figures describe this project, not a promise of future
-                results.
-              </p>
+              {measured && (
+                <p className="small muted">
+                  These figures describe this project, not a promise of future
+                  results.
+                </p>
+              )}
             </section>
           </div>
         </div>

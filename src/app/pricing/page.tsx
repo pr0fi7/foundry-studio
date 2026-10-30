@@ -48,36 +48,41 @@ export default function PricingPage() {
                 </Button>
               </div>
               <div className="table-scroll">
-                <table>
+                {/* Explicit roles keep the table's meaning when phones stack it. */}
+                <table role="table">
                   <caption className="sr-only">{s.name} pricing</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Step</th>
-                      <th scope="col">
+                  <thead role="rowgroup">
+                    <tr role="row">
+                      <th scope="col" role="columnheader">
+                        Step
+                      </th>
+                      <th scope="col" role="columnheader">
                         {siteConfig.showIndicativePrices
                           ? "Indicative price"
                           : "Price"}
                       </th>
-                      <th scope="col">How it’s agreed</th>
+                      <th scope="col" role="columnheader">
+                        How it’s agreed
+                      </th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody role="rowgroup">
                     {s.steps.map((step) => (
-                      <tr key={step.name}>
-                        <th scope="row">
+                      <tr key={step.name} role="row">
+                        <th scope="row" role="rowheader">
                           {step.name}
                           {step.optional && (
                             <span className="muted"> (optional)</span>
                           )}
                         </th>
                         {formatPrice(step) === step.priceNote ? (
-                          <td colSpan={2} className="is-note">
+                          <td colSpan={2} className="is-note" role="cell">
                             {step.priceNote}
                           </td>
                         ) : (
                           <>
-                            <td>{formatPrice(step)}</td>
-                            <td>{step.priceNote}</td>
+                            <td role="cell">{formatPrice(step)}</td>
+                            <td role="cell">{step.priceNote}</td>
                           </>
                         )}
                       </tr>

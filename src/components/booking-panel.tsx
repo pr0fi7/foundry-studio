@@ -8,7 +8,7 @@ import { ArrowUpRight, CalendarDays } from "lucide-react";
  */
 export function BookingPanel({ url }: { url: string }) {
   const [open, setOpen] = useState(false);
-  const embed = `${url}?hide_gdpr_banner=1&primary_color=4c63f2`;
+  const embed = `${url}?primary_color=4c63f2`;
   return (
     <div className="contact-form booking-panel">
       <div className="form-heading">

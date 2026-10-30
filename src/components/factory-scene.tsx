@@ -2,8 +2,8 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { Blocks, Check, Wrench } from "lucide-react";
 import { FactoryArt } from "./factory-art";
+import { useHeroChoice, type Mode } from "./hero-choice";
 
-type Mode = "build" | "fix";
 const demo = {
   build: {
     status: [
@@ -96,6 +96,7 @@ export function FactoryScene() {
   const [stage, setStage] = useState(3);
   const [run, setRun] = useState(0);
   const auto = useRef(true);
+  const chooseMode = useHeroChoice();
   const ref = useRef<HTMLDivElement>(null);
   useRunning(ref);
   const copy = demo[mode];
@@ -222,6 +223,7 @@ export function FactoryScene() {
               aria-pressed={m === mode}
               onClick={() => {
                 auto.current = false;
+                chooseMode(m);
                 setMode(m);
                 setStage(0);
                 setRun((r) => r + 1);
