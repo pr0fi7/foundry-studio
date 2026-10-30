@@ -81,19 +81,3 @@ npm run test:e2e
 The browser suite uses port 4310, reusing a server there or serving `out/`. Build first. It checks all 14 content routes at 320, 375, 390, 768, 1024, and 1440 pixels; internal links; 404; console exceptions; filters; pricing; mobile keyboard navigation; Calendly loading only on request; reduced motion; JavaScript-disabled content; and WCAG AA rules with axe. It also saves screenshots under `preview/`.
 
 Automated accessibility tests do not replace a complete manual assistive-technology audit.
-
-## Deployment
-
-The site is a static export (`output: "export"` in `next.config.ts`) hosted on **GitHub Pages** from `github.com/pr0fi7/foundry-studio`. Every push to `main` runs `.github/workflows/deploy.yml`: typecheck, lint, build, then publish `out/` to Pages. The custom domain `foundry-studio.eu` is set in the repository’s **Settings → Pages**; the workflow reads the base path from Pages, so the same build also works on `pr0fi7.github.io/foundry-studio` before the domain is live.
-
-DNS for `foundry-studio.eu` (managed at Squarespace → Domains → DNS settings):
-
-| Type  | Host  | Value                                                                                      |
-| ----- | ----- | ------------------------------------------------------------------------------------------ |
-| A     | `@`   | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`                 |
-| AAAA  | `@`   | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
-| CNAME | `www` | `pr0fi7.github.io`                                                                         |
-
-Remove Squarespace’s default records for `@` and `www` first, and never add a wildcard (`*`) record. Once GitHub has issued the certificate, tick **Enforce HTTPS** in Settings → Pages.
-
-Static hosting cannot set response headers, run redirects, or run server code, so none are used.
